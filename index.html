@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wavemakers</title>
+</head>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #e6f7ff;
+    color: #073b4c;
+  }
+
+ header {
+  background: linear-gradient(135deg, #023e8a, #0077b6, #00b4d8);
+  color: white;
+  text-align: center;
+  padding: 42px 20px 38px;
+  border-bottom: 5px solid #90e0ef;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.6rem;
+  letter-spacing: 1px;
+}
+
+header p {
+  margin: 8px 0 0;
+  font-size: 1.1rem;
+  opacity: 0.95;
+}
+
+
+  main {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+  }
+
+  section {
+    background-color: white;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px #b8d8e8;
+  }
+
+  h2 {
+    color: #0077b6;
+  }
+
+  li {
+    margin: 10px 0;
+  }
+  .wave-logo {
+  position: relative;
+  width: 90px;
+  height: 65px;
+  margin: 0 auto 12px;
+}
+
+nav {
+  margin-top: 22px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 9px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 999px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+nav a:hover {
+  background-color: white;
+  color: #0077b6;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+.wave-body {
+  position: absolute;
+  bottom: 4px;
+  left: 8px;
+  width: 72px;
+  height: 35px;
+  background: #ffffff;
+  border-radius: 50% 20% 50% 50%;
+  transform: rotate(-12deg);
+  box-shadow: inset -10px -7px 0 #90e0ef;
+}
+
+#promise-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+textarea {
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  padding: 12px;
+  border: 2px solid #90e0ef;
+  border-radius: 10px;
+  resize: vertical;
+}
+
+button {
+  align-self: flex-start;
+  background-color: #0077b6;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #023e8a;
+}
+
+.hidden {
+  display: none;
+}
+
+#thank-you-message {
+  color: #0077b6;
+  font-weight: bold;
+}
+
+
+.wave-crest {
+  position: absolute;
+  top: 2px;
+  left: 26px;
+  width: 40px;
+  height: 42px;
+  border: 10px solid #ffffff;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  border-radius: 55% 60% 10% 55%;
+  transform: rotate(-20deg);
+  z-index: 1;
+}
+
+  footer {
+    background-color: #023e8a;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+  }
+</style>
+
+<body>
+  <header>
+<div class="wave-logo" aria-label="Wavemakers logo">
+  <div class="wave-crest"></div>
+  <div class="wave-body"></div>
+</div>
+ <h1>Wavemakers</h1>
+    <p>If you care, pitch in and save the ocean!</p>
+    <nav>
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#promise">Make a Promise</a>
+</nav>
+
+  </header>
+
+  <main>
+    <section>
+      <main id="home">
+  <section id="save-ocean">
+    <h2>Why Save the Ocean?</h2>
+    <p>It is important to take care of the earth, and especially the ocean and its wildlife. Also, if we pollute the ocean, that is where most of our water comes from so we might drink dirty water.</p>
+  </section>
+
+  <section id="action">
+    <h2>Ways You Can Help</h2>
+    <ul>
+      <li>You can go to a local beach and pick up trash. Even the little things help!</li>
+      <li>Maybe you can start a tiny campaign to help us finish our mission.</li>
+    </ul>
+  </section>
+  
+  <section id="about">
+  <h2>About Us</h2>
+  <p>We, the founders of Wavemakers, are Noah Saldana Hoffmann (11), Luca Imburgia (11), and Emmanuel "EJ" Pacin (10). We were assigned to make this website in my Society and Me Elective We were arguing about the names Ocean Helpers, OceanGoals, and Wavemakers.
+</main>
+
+    </section>
+
+
+    <section>
+      <h2>This website is not finished.</h2>
+      <ul>
+        <li>This website is currently in it's beta.</li>
+        <li>We are mainly using HTML, so if you can suggest some things to add, feel free!.</li>
+        <li>Also, if you have any questions about our site Wavemakers, please feel free to email us at "wavemakersproject@gmail.com".</li>
+      </ul>
+    </section>
+
+ <section id="promise">
+  <h2>Make a Promise</h2>
+
+  <form id="promise-form">
+    <label for="ocean-promise">My ocean-saving promise:</label>
+
+    <textarea
+      id="ocean-promise"
+      name="ocean-promise"
+      rows="4"
+      placeholder="I promise to..."
+      required
+    ></textarea>
+
+    <button type="submit">Send My Promise</button>
+  </form>
+
+  <p id="thank-you-message" class="hidden" aria-live="polite">
+    Thank you for making a difference for our oceans!
+  </p>
+</section>
+
+  </main>
+
+  <footer>
+    <p>Created by: Noah Saldana Hoffmann, Luca Imburgia, and Emmanuel "EJ" Pacin.</p>
+  </footer>
+  <script>
+  const form = document.getElementById("promise-form");
+  const message = document.getElementById("thank-you-message");
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    message.classList.remove("hidden");
+    form.reset();
+  });
+</script>
+
+</body>
+</html>
