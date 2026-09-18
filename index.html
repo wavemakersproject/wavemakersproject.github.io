@@ -4,12 +4,46 @@
   <title>Wavemakers</title>
 </head>
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background-color: #e6f7ff;
-    color: #073b4c;
+ 
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+background-color: #0077b6;
+background-image:
+  radial-gradient(
+    ellipse at 20% 20%,
+    rgba(144, 224, 239, 0.65) 0%,
+    transparent 18%
+  ),
+  radial-gradient(
+    ellipse at 75% 35%,
+    rgba(202, 240, 248, 0.5) 0%,
+    transparent 20%
+  ),
+  repeating-radial-gradient(
+    ellipse at 50% 100%,
+    rgba(255, 255, 255, 0.16) 0 2px,
+    transparent 3px 35px
+  );
+background-attachment: fixed;
+
+  background-attachment: fixed;
+  color: #073b4c;
+}
+
+ body {
+  animation: oceanMove 12s ease-in-out infinite alternate;
+}
+
+@keyframes oceanMove {
+  from {
+    background-position: 0 0, 0 0, 0 0;
   }
+
+  to {
+    background-position: 80px 35px, -60px 45px, 40px -30px;
+  }
+}
 
  header {
   background: linear-gradient(135deg, #023e8a, #0077b6, #00b4d8);
@@ -82,6 +116,16 @@ nav a:hover {
   background-color: white;
   color: #0077b6;
 }
+
+.promise-count {
+  background-color: #caf0f8;
+  color: #023e8a;
+  font-weight: bold;
+  padding: 10px 14px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
 
 html {
   scroll-behavior: smooth;
@@ -198,7 +242,7 @@ button:hover {
   
   <section id="about">
   <h2>About Us</h2>
-  <p>We, the founders of Wavemakers, are Noah Saldana Hoffmann (11), Luca Imburgia (11), and Emmanuel "EJ" Pacin (10). We were assigned to make this website in my Society and Me Elective We were arguing about the names Ocean Helpers, OceanGoals, and Wavemakers.
+  <p>We, the founders of Wavemakers, are Noah Saldana Hoffmann (11), Luca Imburgia (11), and Emmanuel "EJ" Pacin (10). We were assigned to make this website in my Society and Me Elective We were arguing about the names Ocean Helpers, OceanGoals, and Wavemakers. We were arguing almost all Elective, but finally, we chose Wavemakers. Made on September 18, 2026, at 8:47AM.<p>
 </main>
 
     </section>
@@ -229,6 +273,11 @@ button:hover {
 
     <button type="submit">Send My Promise</button>
   </form>
+  
+  <p class="promise-count">
+  🌊 Ocean promises made: <span id="promise-count">0</span>
+</p>
+
 
   <p id="thank-you-message" class="hidden" aria-live="polite">
     Thank you for making a difference for our oceans!
@@ -242,13 +291,20 @@ button:hover {
   </footer>
   <script>
   const form = document.getElementById("promise-form");
-  const message = document.getElementById("thank-you-message");
+const message = document.getElementById("thank-you-message");
+ const countDisplay = document.getElementById("promise-count");
+let promiseCount = 0;
 
   form.addEventListener("submit", function(event) {
     event.preventDefault();
 
-    message.classList.remove("hidden");
-    form.reset();
+  message.classList.remove("hidden");
+
+promiseCount++;
+countDisplay.textContent = promiseCount;
+
+form.reset();
+
   });
 </script>
 
