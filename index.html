@@ -299,16 +299,20 @@ textarea.input-error {
 
  <section id="promise">
   <h2>Make a Promise</h2>
-
- <form id="promise-form">
+   
+<form id="promise-form">
   <label for="ocean-promise">My ocean-saving promise:</label>
 
   <textarea
     id="ocean-promise"
     name="ocean-promise"
     rows="4"
-    placeholder="I promise to....
+    placeholder="I promise to..."
   ></textarea>
+
+  <p id="form-error" class="form-error hidden" aria-live="polite">
+    Please write your ocean-saving promise before sending it.
+  </p>
 
   <button type="submit">Send My Promise</button>
 </form>
