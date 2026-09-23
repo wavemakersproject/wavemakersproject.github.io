@@ -210,6 +210,24 @@ button:hover {
   z-index: 1;
 }
 
+  .form-error {
+  background-color: #ffe5e5;
+  color: #a30000;
+  border: 2px solid #d62828;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-weight: bold;
+  margin-top: 12px;
+}
+
+textarea.input-error {
+  border-color: #d62828;
+  background-color: #fff5f5;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(214, 40, 40, 0.2);
+}
+
+
   footer {
     background-color: #023e8a;
     color: white;
@@ -282,20 +300,24 @@ button:hover {
  <section id="promise">
   <h2>Make a Promise</h2>
 
-  <form id="promise-form">
-    <label for="ocean-promise">My ocean-saving promise:</label>
+ <form id="promise-form">
+  <label for="ocean-promise">My ocean-saving promise:</label>
 
-    <textarea
-      id="ocean-promise"
-      name="ocean-promise"
-      rows="4"
-      placeholder="I promise to..."
-      required
-    ></textarea>
+  <textarea
+    id="ocean-promise"
+    name="ocean-promise"
+    rows="4"
+    placeholder="I promise to..."
+    required
+  ></textarea>
 
-    <button type="submit">Send My Promise</button>
-  </form>
-  
+  <button type="submit">Send My Promise</button>
+</form>
+
+<p id="form-error" class="form-error hidden" aria-live="polite">
+  Please write your ocean-saving promise before sending it.
+</p>
+
   <p class="promise-count">
   🌊 Ocean promises made: <span id="promise-count">0</span>
 </p>
@@ -312,21 +334,42 @@ button:hover {
     <p>Created by: Noah Saldana Hoffmann, Luca Imburgia, and Emmanuel "EJ" Pacin.</p>
   </footer>
   <script>
+ <script>
   const form = document.getElementById("promise-form");
-const message = document.getElementById("thank-you-message");
- const countDisplay = document.getElementById("promise-count");
-let promiseCount = 0;
+  const message = document.getElementById("thank-you-message");
+  const countDisplay = document.getElementById("promise-count");
+  const promiseBox = document.getElementById("ocean-promise");
+  const errorMessage = document.getElementById("form-error");
+
+  let promiseCount = 0;
 
   form.addEventListener("submit", function(event) {
     event.preventDefault();
 
-  message.classList.remove("hidden");
+    if (promiseBox.value.trim() === "") {
+      errorMessage.classList.remove("hidden");
+      promiseBox.classList.add("input-error");
+      message.classList.add("hidden");
+      promiseBox.focus();
+      return;
+    }
 
-promiseCount++;
-countDisplay.textContent = promiseCount;
+    errorMessage.classList.add("hidden");
+    promiseBox.classList.remove("input-error");
 
-form.reset();
+    message.classList.remove("hidden");
 
+    promiseCount++;
+    countDisplay.textContent = promiseCount;
+
+    form.reset();
+  });
+
+  promiseBox.addEventListener("input", function() {
+    if (promiseBox.value.trim() !== "") {
+      errorMessage.classList.add("hidden");
+      promiseBox.classList.remove("input-error");
+    }
   });
 </script>
 
